@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대표 칼럼 — 이룸 마케팅</title>
+<meta name="description" content="병원 마케팅 8년 노하우를 담은 이룸 마케팅 대표 칼럼.">
+<meta property="og:title" content="대표 칼럼 — 이룸 마케팅">
+<meta property="og:description" content="병원 마케팅 8년 노하우를 담은 인사이트.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="sections.css">
+<style>
+  .blog-hero {
+    background: linear-gradient(180deg, #0A1B3D 0%, #0F2456 100%);
+    color: #fff;
+    padding: 80px 0 64px;
+    text-align: center;
+  }
+  .blog-hero h1 { font-size: 48px; font-weight: 800; letter-spacing: -0.025em; margin: 0 0 14px; }
+  .blog-hero p { color: rgba(255,255,255,0.7); font-size: 17px; margin: 0; }
+
+  .blog-section { padding: 64px 0 96px; background: #fff; }
+  .blog-tabs {
+    display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap;
+    justify-content: center;
+  }
+  .blog-tab {
+    padding: 8px 18px; border-radius: 999px;
+    border: 1px solid var(--erum-gray-200);
+    font-size: 14px; font-weight: 600;
+    color: var(--erum-gray-600); cursor: pointer;
+    transition: all 160ms var(--erum-ease);
+    background: #fff;
+  }
+  .blog-tab.is-active, .blog-tab:hover {
+    background: var(--erum-blue-500); color: #fff;
+    border-color: var(--erum-blue-500);
+  }
+
+  .naver-banner {
+    background: var(--erum-blue-50);
+    border: 1px solid var(--erum-blue-100);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .naver-banner h3 { margin: 0 0 6px; font-size: 18px; font-weight: 700; color: var(--erum-navy-900); }
+  .naver-banner p { margin: 0; font-size: 14px; color: var(--erum-gray-600); }
+  .naver-banner .naver-logo {
+    background: #03C75A; color: #fff;
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 18px; flex: 0 0 auto;
+  }
+
+  @media (max-width: 700px) {
+    .blog-hero h1 { font-size: 32px; }
+    .naver-banner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="site-logo">
+      <img src="assets/logo.png" alt="이룸 마케팅" onerror="this.style.display='none'">
+      <span>이룸 마케팅</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html#services">서비스</a>
+      <a href="index.html#cases">성공사례</a>
+      <a href="index.html#process">프로세스</a>
+      <a href="blog.html" style="color:var(--erum-blue-500);">칼럼</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <a href="index.html#contact" class="btn btn-primary">무료 상담</a>
+    </div>
+  </div>
+</header>
+
+<section class="blog-hero">
+  <div class="container">
+    <h1>대표 칼럼</h1>
+    <p>병원 마케팅 현장에서 쌓은 인사이트를 공유합니다</p>
+  </div>
+</section>
+
+<section class="blog-section">
+  <div class="container">
+
+    <!-- 네이버 블로그 안내 배너 -->
+    <div class="naver-banner">
+      <div style="display:flex;gap:16px;align-items:center;">
+        <div class="naver-logo">N</div>
+        <div>
+          <h3>네이버 블로그에서 더 많은 글 보기</h3>
+          <p>병원 마케팅 실무 노하우를 매주 업데이트합니다.</p>
+        </div>
+      </div>
+      <a href="https://blog.naver.com/YOUR_BLOG_ID" target="_blank" rel="noopener" class="btn btn-secondary">
+        네이버 블로그 가기 →
+      </a>
+    </div>
+
+    <!-- 카테고리 탭 (정적 데모) -->
+    <div class="blog-tabs">
+      <button class="blog-tab is-active">전체</button>
+      <button class="blog-tab">네이버 플레이스</button>
+      <button class="blog-tab">블로그 콘텐츠</button>
+      <button class="blog-tab">SNS 마케팅</button>
+      <button class="blog-tab">성과 리포트</button>
+    </div>
+
+    <!-- 칼럼 그리드 -->
+    <div class="columns-grid">
+      <a href="#" class="column-card">
+        <div class="column-tag">네이버 플레이스</div>
+        <h3>2025년 네이버 플레이스 상위 노출, 무엇이 달라졌나</h3>
+        <p>최근 알고리즘 변경으로 영향을 받은 핵심 지표 5가지를 정리했습니다.</p>
+        <div class="column-meta">
+          <span>2025.10.15</span>
+          <span class="read-more">자세히 보기 →</span>
+        </div>
+      </a>
+      <a href="#" class="column-card">
+        <div class="column-tag">블로그 콘텐츠</div>
+        <h3>병원 블로그 글 1편 쓰는데 며칠 걸려야 할까</h3>
+        <p>전환율을 높이는 의료 콘텐츠의 구조와 작성 시간을 공개합니다.</p>
+        <div class="column-meta">
+          <span>2025.10.02</span>
+          <span class="read-more">자세히 보기 →</span>
+        </div>
+      </a>
+      <a href="#" class="column-card">
+        <div class="column-tag">성과 리포트</div>
+        <h3>마케팅 비용 대비 효율(ROAS), 병원에서 보는 법</h3>
+        <p>대행사 리포트에서 꼭 확인해야 할 4개의 숫자와 해석법.</p>
+        <div class="column-meta">
+          <span>2025.09.20</span>
+          <span class="read-more">자세히 보기 →</span>
+        </div>
+      </a>
+      <a href="#" class="column-card">
+        <div class="column-tag">SNS 마케팅</div>
+        <h3>치과 인스타그램 운영, 콘텐츠 비율은 이렇게</h3>
+        <p>예약 전환율을 높이는 인스타그램 콘텐츠 6:3:1 법칙.</p>
+        <div class="column-meta">
+          <span>2025.09.05</span>
+          <span class="read-more">자세히 보기 →</span>
+        </div>
+      </a>
+      <a href="#" class="column-card">
+        <div class="column-tag">네이버 플레이스</div>
+        <h3>리뷰 1개 = 신환 5명? 진짜인가</h3>
+        <p>200개 병원 데이터로 본 리뷰 수와 실제 예약의 상관관계.</p>
+        <div class="column-meta">
+          <span>2025.08.22</span>
+          <span class="read-more">자세히 보기 →</span>
+        </div>
+      </a>
+      <a href="#" class="column-card">
+        <div class="column-tag">블로그 콘텐츠</div>
+        <h3>의료광고법, 어디까지 쓸 수 있나</h3>
+        <p>병원 콘텐츠 작성 시 자주 걸리는 표현과 안전한 대체어.</p>
+        <div class="column-meta">
+          <span>2025.08.10</span>
+          <span class="read-more">자세히 보기 →</span>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="https://blog.naver.com/YOUR_BLOG_ID" target="_blank" rel="noopener" class="btn btn-primary">
+        네이버 블로그에서 전체 글 보기 →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="이룸 마케팅" onerror="this.style.display='none'">
+          <span>이룸 마케팅</span>
+        </div>
+        <p class="footer-tagline">병원 마케팅, 결과로 증명합니다.</p>
+      </div>
+      <div class="footer-col">
+        <h4>서비스</h4>
+        <ul>
+          <li><a href="index.html#services">네이버 플레이스</a></li>
+          <li><a href="index.html#services">블로그 마케팅</a></li>
+          <li><a href="index.html#services">SNS 마케팅</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>회사</h4>
+        <ul>
+          <li><a href="index.html#cases">성공사례</a></li>
+          <li><a href="blog.html">대표 칼럼</a></li>
+          <li><a href="index.html#contact">문의하기</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>연락처</h4>
+        <ul>
+          <li>📞 02-1234-5678</li>
+          <li>✉ hello@erum-marketing.kr</li>
+          <li>평일 10:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 이룸 마케팅. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  if (window.lucide) window.lucide.createIcons();
+  document.querySelectorAll('.blog-tab').forEach(function (t) {
+    t.addEventListener('click', function () {
+      document.querySelectorAll('.blog-tab').forEach(function (x) { x.classList.remove('is-active'); });
+      t.classList.add('is-active');
+    });
+  });
+</script>
+</body>
+</html>
