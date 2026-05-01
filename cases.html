@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성공사례 — 이룸마케팅</title>
+<meta name="description" content="이룸마케팅과 함께한 병원들의 실제 성장 스토리를 확인하세요.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="sections.css">
+<style>
+  .cases-page-hero {
+    background: linear-gradient(180deg, #0A1B3D 0%, #0F2456 100%);
+    color: #fff;
+    padding: 72px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cases-page-hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(45,99,229,0.25), transparent 50%),
+      radial-gradient(ellipse at 85% 100%, rgba(74,123,255,0.18), transparent 50%);
+    pointer-events: none;
+  }
+  .cases-page-hero .container { position: relative; }
+  .cases-page-hero h1 {
+    font-size: 56px; font-weight: 800; letter-spacing: -0.03em;
+    margin: 0 0 16px; line-height: 1.1;
+  }
+  .cases-page-hero p {
+    font-size: 18px; color: rgba(255,255,255,0.7);
+    margin: 0;
+  }
+
+  .cases-filter {
+    background: #fff;
+    border-bottom: 1px solid var(--erum-gray-100);
+    padding: 20px 0;
+    position: sticky; top: 68px; z-index: 30;
+  }
+  .filter-list {
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  }
+  .filter-btn {
+    padding: 8px 18px; border-radius: 999px; font-size: 14px;
+    font-weight: 600; cursor: pointer; transition: all 160ms var(--erum-ease);
+    border: 1.5px solid var(--erum-gray-200);
+    background: #fff; color: var(--erum-gray-700);
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--erum-navy-900); color: #fff;
+    border-color: var(--erum-navy-900);
+  }
+
+  .cases-full { background: var(--erum-gray-50); padding: 64px 0 96px; }
+  .cases-full-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .case-card[data-hidden="true"] { display: none; }
+
+  .case-stat-row {
+    display: flex; gap: 16px; margin-top: 16px;
+    border-top: 1px solid var(--erum-gray-100);
+    padding-top: 14px;
+  }
+  .case-stat {
+    flex: 1; text-align: center;
+  }
+  .case-stat-val {
+    font-size: 20px; font-weight: 800; color: var(--erum-blue-600);
+    letter-spacing: -0.02em;
+  }
+  .case-stat-lbl {
+    font-size: 11px; color: var(--erum-gray-500); margin-top: 2px;
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 14px; font-weight: 600; color: var(--erum-blue-500);
+    margin-bottom: 40px;
+    transition: gap 160ms var(--erum-ease);
+  }
+  .back-link:hover { gap: 10px; }
+
+  @media (max-width: 900px) {
+    .cases-full-grid { grid-template-columns: 1fr; }
+    .cases-page-hero h1 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="site-logo">
+      <span>이룸마케팅</span>
+    </a>
+    <nav class="site-nav">
+      <div class="nav-item-dropdown">
+        <a href="index.html#cases">성공사례</a>
+        <div class="nav-dropdown">
+          <a href="cases.html">전체보기</a>
+        </div>
+      </div>
+      <a href="index.html#columns">대표 칼럼</a>
+      <a href="index.html#contact">문의</a>
+    </nav>
+    <button class="menu-toggle" aria-label="메뉴 열기" id="menuToggle">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="index.html#cases" data-close>성공사례</a>
+  <a href="cases.html" data-close style="font-size:15px;color:var(--erum-gray-500);padding-left:24px;">전체보기</a>
+  <a href="index.html#columns" data-close>대표 칼럼</a>
+  <a href="index.html#contact" data-close>문의</a>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="cases-page-hero">
+  <div class="container">
+    <h1>성공사례</h1>
+    <p>이룸마케팅과 함께한 병원들의 실제 성장 스토리</p>
+  </div>
+</section>
+
+<!-- FILTER -->
+<div class="cases-filter">
+  <div class="container">
+    <div class="filter-list">
+      <button class="filter-btn active" data-filter="all">전체</button>
+      <button class="filter-btn" data-filter="치과">치과</button>
+      <button class="filter-btn" data-filter="피부과">피부과</button>
+      <button class="filter-btn" data-filter="정형외과">정형외과</button>
+      <button class="filter-btn" data-filter="한의원">한의원</button>
+      <button class="filter-btn" data-filter="안과">안과</button>
+      <button class="filter-btn" data-filter="성형외과">성형외과</button>
+    </div>
+  </div>
+</div>
+
+<!-- CASES GRID -->
+<section class="cases-full">
+  <div class="container">
+    <a href="index.html" class="back-link">← 홈으로</a>
+    <div class="cases-full-grid" id="casesGrid">
+
+      <div class="case-card" data-category="치과">
+        <div class="case-img" style="background-image:url('assets/case-dental.png');">
+          <span class="case-pill">치과</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">A 치과의원</h3>
+          <p class="case-desc">블로그 마케팅과 지역 키워드 최적화로 6개월 만에 신환이 4배 이상 증가. 지역 내 검색 상위권 유지 중.</p>
+          <div class="case-stat-row">
+            <div class="case-stat"><div class="case-stat-val">15→67명</div><div class="case-stat-lbl">월 신환 수</div></div>
+            <div class="case-stat"><div class="case-stat-val">280%</div><div class="case-stat-lbl">매출 성장</div></div>
+            <div class="case-stat"><div class="case-stat-val">6개월</div><div class="case-stat-lbl">달성 기간</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card" data-category="피부과">
+        <div class="case-img" style="background-image:url('assets/case-derm.png');">
+          <span class="case-pill">피부과</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">B 피부과의원</h3>
+          <p class="case-desc">SNS 마케팅과 리뷰 관리 전략으로 지역 검색 1위 달성. 온라인 예약 전환율이 크게 상승했습니다.</p>
+          <div class="case-stat-row">
+            <div class="case-stat"><div class="case-stat-val">340%</div><div class="case-stat-lbl">예약 전환율</div></div>
+            <div class="case-stat"><div class="case-stat-val">1위</div><div class="case-stat-lbl">지역 검색 순위</div></div>
+            <div class="case-stat"><div class="case-stat-val">4개월</div><div class="case-stat-lbl">달성 기간</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card" data-category="정형외과">
+        <div class="case-img" style="background-image:url('assets/case-ortho.png');">
+          <span class="case-pill">정형외과</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">C 정형외과</h3>
+          <p class="case-desc">네이버 플레이스 최적화로 지역 대표 정형외과로 자리매김. 월 매출이 3배 이상 성장했습니다.</p>
+          <div class="case-stat-row">
+            <div class="case-stat"><div class="case-stat-val">1.2→3.8억</div><div class="case-stat-lbl">월 매출</div></div>
+            <div class="case-stat"><div class="case-stat-val">217%</div><div class="case-stat-lbl">매출 성장</div></div>
+            <div class="case-stat"><div class="case-stat-val">8개월</div><div class="case-stat-lbl">달성 기간</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card" data-category="한의원">
+        <div class="case-img" style="background-color:var(--erum-blue-100);">
+          <span class="case-pill">한의원</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">D 한의원</h3>
+          <p class="case-desc">파워링크 + 브랜드 블로그 병행 전략으로 비급여 진료 문의가 월 평균 50건 이상 증가했습니다.</p>
+          <div class="case-stat-row">
+            <div class="case-stat"><div class="case-stat-val">+50건</div><div class="case-stat-lbl">월 문의 증가</div></div>
+            <div class="case-stat"><div class="case-stat-val">190%</div><div class="case-stat-lbl">매출 성장</div></div>
+            <div class="case-stat"><div class="case-stat-val">5개월</div><div class="case-stat-lbl">달성 기간</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card" data-category="안과">
+        <div class="case-img" style="background-color:var(--erum-gray-200);">
+          <span class="case-pill">안과</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">E 안과의원</h3>
+          <p class="case-desc">블로그 상위노출 보장 서비스로 라식·라섹 검색 키워드 상위 노출 달성. 신환 유입이 꾸준히 증가 중.</p>
+          <div class="case-stat-row">
+            <div class="case-stat"><div class="case-stat-val">3배</div><div class="case-stat-lbl">신환 증가</div></div>
+            <div class="case-stat"><div class="case-stat-val">상위 3위</div><div class="case-stat-lbl">키워드 순위</div></div>
+            <div class="case-stat"><div class="case-stat-val">3개월</div><div class="case-stat-lbl">달성 기간</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card" data-category="성형외과">
+        <div class="case-img" style="background-color:var(--erum-navy-800);">
+          <span class="case-pill">성형외과</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">F 성형외과</h3>
+          <p class="case-desc">유튜브 채널 기획·운영과 플레이스 광고 결합으로 브랜드 인지도가 크게 상승했습니다.</p>
+          <div class="case-stat-row">
+            <div class="case-stat"><div class="case-stat-val">2.4만</div><div class="case-stat-lbl">유튜브 구독자</div></div>
+            <div class="case-stat"><div class="case-stat-val">250%</div><div class="case-stat-lbl">매출 성장</div></div>
+            <div class="case-stat"><div class="case-stat-val">10개월</div><div class="case-stat-lbl">달성 기간</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <span>이룸마케팅</span>
+        </div>
+        <p class="footer-tagline">병원 마케팅, 결과로 증명합니다.<br>200개 이상의 병원과 함께한 신뢰의 파트너.</p>
+      </div>
+      <div class="footer-col">
+        <h4>서비스</h4>
+        <ul>
+          <li><a href="index.html#services">파워링크</a></li>
+          <li><a href="index.html#services">파워콘텐츠</a></li>
+          <li><a href="index.html#services">브랜드 블로그</a></li>
+          <li><a href="index.html#services">플레이스 광고</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>회사</h4>
+        <ul>
+          <li><a href="cases.html">성공사례</a></li>
+          <li><a href="index.html#columns">대표 칼럼</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">문의하기</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>연락처</h4>
+        <ul>
+          <li>📞 02-1234-5678</li>
+          <li>✉ hello@erum-marketing.kr</li>
+          <li>평일 10:00–19:00</li>
+          <li>서울특별시 강남구</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 이룸마케팅. All rights reserved.</div>
+      <div>사업자등록번호 000-00-00000 · 대표 OOO</div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Filter
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.case-card');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(card => {
+        card.dataset.hidden = (f !== 'all' && card.dataset.category !== f) ? 'true' : 'false';
+      });
+    });
+  });
+</script>
+</body>
+</html>
