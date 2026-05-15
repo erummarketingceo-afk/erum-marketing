@@ -41,6 +41,15 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+
+      // 개인정보 처리방침 동의 체크
+      var agree = form.querySelector('input[name="동의"]');
+      if (agree && !agree.checked) {
+        alert('개인정보 처리방침에 동의해 주세요.');
+        agree.focus();
+        return;
+      }
+
       var data = new FormData(form);
       var btn = form.querySelector('button[type="submit"]');
       var origText = btn.textContent;
@@ -69,16 +78,44 @@
     });
   }
 
-  // 5) 헤더 스크롤 시 그림자
+  // 5) 헤더 스크롤 시 그림자 + Sticky CTA 노출
   var header = document.querySelector('.site-header');
+  var stickyCta = document.getElementById('stickyCta');
+  var heroSection = document.querySelector('.hero');
   function onScroll() {
-    if (!header) return;
-    if (window.scrollY > 4) {
-      header.style.boxShadow = '0 2px 12px rgba(15,36,86,0.06)';
-    } else {
-      header.style.boxShadow = 'none';
+    if (header) {
+      if (window.scrollY > 4) {
+        header.style.boxShadow = '0 2px 12px rgba(15,36,86,0.06)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    }
+    // Sticky CTA: Hero 지나면 보이게, 푸터 위에서는 숨김
+    if (stickyCta && heroSection) {
+      var heroBottom = heroSection.getBoundingClientRect().bottom;
+      var footer = document.querySelector('.site-footer');
+      var nearFooter = footer && footer.getBoundingClientRect().top < window.innerHeight - 80;
+      if (heroBottom < 80 && !nearFooter) {
+        stickyCta.classList.add('is-visible');
+      } else {
+        stickyCta.classList.remove('is-visible');
+      }
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // 6) 서비스 캐러셀 좌우 화살표
+  var svcTrack = document.getElementById('svcTrack');
+  var svcPrev = document.getElementById('svcPrev');
+  var svcNext = document.getElementById('svcNext');
+  if (svcTrack && svcPrev && svcNext) {
+    var step = 380; // 카드 너비 + gap
+    svcPrev.addEventListener('click', function () {
+      svcTrack.scrollBy({ left: -step, behavior: 'smooth' });
+    });
+    svcNext.addEventListener('click', function () {
+      svcTrack.scrollBy({ left: step, behavior: 'smooth' });
+    });
+  }
 })();

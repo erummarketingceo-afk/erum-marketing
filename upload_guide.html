@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>현재 버전 통째로 올리기 — 이룸마케팅</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  background: #F7F8FA;
+  color: #14161C;
+  line-height: 1.7;
+}
+
+.hero {
+  background: linear-gradient(160deg, #0A1B3D 0%, #1F4FCF 100%);
+  color: #fff;
+  padding: 64px 24px 56px;
+  text-align: center;
+}
+.hero .badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 6px 16px;
+  margin-bottom: 20px;
+  color: rgba(255,255,255,0.9);
+}
+.hero h1 {
+  font-size: 40px; font-weight: 900;
+  letter-spacing: -0.03em; margin: 0 0 14px;
+  line-height: 1.15;
+}
+.hero p {
+  font-size: 17px; color: rgba(255,255,255,0.75);
+  margin: 0;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
+
+/* 목차 */
+.toc {
+  background: #fff;
+  border: 1px solid #DDE1E8;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 40px;
+}
+.toc-title {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #6B7382;
+  margin: 0 0 14px;
+}
+.toc ol { margin: 0; padding-left: 20px; }
+.toc li { margin-bottom: 8px; }
+.toc a {
+  font-size: 15px; font-weight: 600;
+  color: #0F2456; text-decoration: none;
+}
+.toc a:hover { color: #2D63E5; }
+
+/* 스텝 */
+.step-section { margin-bottom: 48px; }
+.step-header {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #E6EEFF;
+}
+.step-num {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: #2D63E5; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 900;
+  flex-shrink: 0;
+}
+.step-title {
+  font-size: 22px; font-weight: 800;
+  color: #0A1B3D; letter-spacing: -0.02em;
+  margin: 0;
+}
+.step-sub {
+  font-size: 14px; color: #6B7382; font-weight: 500;
+  margin: 2px 0 0;
+}
+
+/* 카드 */
+.card {
+  background: #fff;
+  border: 1px solid #DDE1E8;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 16px;
+}
+.card h3 {
+  font-size: 16px; font-weight: 700;
+  color: #0F2456; margin: 0 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+/* 번호 있는 스텝 */
+.steps-list { list-style: none; padding: 0; margin: 0; }
+.steps-list li {
+  display: flex; gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #EEF0F4;
+  font-size: 15px;
+}
+.steps-list li:last-child { border-bottom: none; }
+.steps-list .n {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #E6EEFF; color: #2D63E5;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800;
+  flex-shrink: 0; margin-top: 1px;
+}
+.steps-list .txt { flex: 1; color: #2E3340; line-height: 1.6; }
+.steps-list .txt b { color: #0A1B3D; }
+
+/* 스크린샷 설명 박스 */
+.screen-box {
+  background: #0A1B3D;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.screen-box .label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #8AAEFF;
+  margin-bottom: 8px;
+}
+
+/* 팁 / 경고 */
+.tip {
+  background: #E6EEFF;
+  border-left: 4px solid #2D63E5;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px; color: #0F2456;
+}
+.warn {
+  background: #FFF7E6;
+  border-left: 4px solid #E89D2C;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px; color: #5C3D00;
+}
+.success {
+  background: #E5F6EE;
+  border-left: 4px solid #15A36E;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px; color: #0A3D25;
+}
+
+code {
+  background: #EEF0F4; color: #1F4FCF;
+  padding: 2px 8px; border-radius: 6px;
+  font-family: 'SFMono-Regular', Menlo, monospace;
+  font-size: 13px;
+}
+
+/* 파일 구조 트리 */
+.tree {
+  background: #0A1B3D;
+  color: #E6EEFF;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  font-family: 'SFMono-Regular', Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.85;
+  overflow-x: auto;
+}
+.tree .folder { color: #8AAEFF; font-weight: 700; }
+.tree .file { color: #C7D5F0; }
+.tree .comment { color: #6B7382; }
+
+/* 체크리스트 */
+.checklist { list-style: none; padding: 0; margin: 0; }
+.checklist li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid #EEF0F4;
+  font-size: 15px;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist .check {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #15A36E; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+}
+
+/* 완료 배너 */
+.done-banner {
+  background: linear-gradient(135deg, #0A1B3D, #1F4FCF);
+  color: #fff; border-radius: 16px;
+  padding: 36px 32px; text-align: center;
+  margin-top: 48px;
+}
+.done-banner h2 { font-size: 24px; font-weight: 800; margin: 0 0 10px; }
+.done-banner p { color: rgba(255,255,255,0.75); margin: 0; font-size: 15px; }
+
+a { color: #2D63E5; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">📦 현재 버전 일괄 업로드</div>
+  <h1>지금 버전을<br>사이트에 올리는 법</h1>
+  <p>다른 작업물까지 한꺼번에 반영하기 · 총 10분</p>
+</div>
+
+<div class="wrap">
+
+  <!-- 목차 -->
+  <div class="toc">
+    <div class="toc-title">📌 전체 순서</div>
+    <ol>
+      <li><a href="#s1">현재 site 폴더 다운로드 받기</a></li>
+      <li><a href="#s2">GitHub 기존 파일 정리하기</a></li>
+      <li><a href="#s3">새 파일 일괄 업로드하기</a></li>
+      <li><a href="#s4">Vercel 자동 배포 확인하기</a></li>
+      <li><a href="#s5">최종 확인 체크리스트</a></li>
+    </ol>
+  </div>
+
+  <div class="tip">
+    💡 <b>왜 이 방식인가:</b> 어떤 파일을 수정했는지 일일이 따지지 않고, <b>현재 site 폴더 안의 모든 파일</b>을 GitHub에 통째로 덮어씌우는 방식입니다. 누락이나 충돌 걱정이 없어요.
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step-section" id="s1">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">현재 site 폴더 다운로드 받기</div>
+        <div class="step-sub">PC에 현재 작업 결과물을 ZIP으로 받기</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>💾 다운로드 방법</h3>
+      <ul class="steps-list">
+        <li>
+          <div class="n">1</div>
+          <div class="txt">화면 <b>왼쪽 파일 트리</b>에서 <code>site</code> 폴더를 찾기</div>
+        </li>
+        <li>
+          <div class="n">2</div>
+          <div class="txt"><code>site</code> 폴더 위에서 <b>마우스 우클릭</b> → <b>다운로드(Download)</b> 클릭<br><span style="color:#6B7382;font-size:13px;">ZIP 파일로 저장됩니다 (예: site.zip)</span></div>
+        </li>
+        <li>
+          <div class="n">3</div>
+          <div class="txt">다운받은 ZIP을 <b>바탕화면이나 다운로드 폴더에서 압축 풀기</b><br><span style="color:#6B7382;font-size:13px;">Windows: 우클릭 → 압축 풀기 / Mac: 더블클릭</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📁 압축 풀면 이런 구조여야 정상</h3>
+      <div class="tree">
+<span class="folder">site/</span>
+├── <span class="file">index.html</span>             <span class="comment">← 메인 페이지</span>
+├── <span class="file">blog.html</span>              <span class="comment">← 칼럼 페이지</span>
+├── <span class="file">cases.html</span>             <span class="comment">← 성공사례 페이지</span>
+├── <span class="file">deploy_guide.html</span>      <span class="comment">← 초기 배포 가이드</span>
+├── <span class="file">update_guide.html</span>      <span class="comment">← 부분 업데이트 가이드</span>
+├── <span class="file">upload_guide.html</span>      <span class="comment">← 이 가이드</span>
+├── <span class="file">styles.css</span>             <span class="comment">← 전체 디자인</span>
+├── <span class="file">sections.css</span>           <span class="comment">← 섹션별 디자인</span>
+├── <span class="file">script.js</span>              <span class="comment">← 동작 스크립트</span>
+├── <span class="file">tweaks.js</span>              <span class="comment">← 색상/무드 토글</span>
+└── <span class="folder">assets/</span>
+    ├── <span class="file">logo.png, og-image.png</span>
+    ├── <span class="file">case-dental.png, case-derm.png, case-ortho.png</span>
+    ├── <span class="file">partner-1.png ~ partner-6.png</span>
+    └── <span class="folder">clients/</span>
+        └── <span class="file">client-01.png ~ client-19.png</span>  <span class="comment">(병원 로고)</span>
+      </div>
+    </div>
+
+    <div class="warn">
+      ⚠️ <code>assets/clients/</code> 폴더 안에 병원 로고 PNG 파일들이 들어 있는지 꼭 확인하세요. 이게 없으면 협력병원 marquee가 깨집니다.
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-section" id="s2">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">GitHub 기존 파일 정리하기</div>
+        <div class="step-sub">옛날 파일을 지워서 충돌을 막습니다</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🧹 기존 파일 삭제</h3>
+      <ul class="steps-list">
+        <li>
+          <div class="n">1</div>
+          <div class="txt"><a href="https://github.com" target="_blank">github.com</a> → <b>Your repositories</b> → <code>erum-marketing</code> 클릭</div>
+        </li>
+        <li>
+          <div class="n">2</div>
+          <div class="txt">저장소 메인 화면에 있는 <b>모든 파일을 하나씩 삭제</b><br><span style="color:#6B7382;font-size:13px;">파일 클릭 → 우측 상단 휴지통(🗑️) 아이콘 → 아래로 스크롤 → Commit changes</span></div>
+        </li>
+        <li>
+          <div class="n">3</div>
+          <div class="txt"><b>assets 폴더</b>도 들어가서 그 안의 파일들도 같은 방식으로 삭제<br><span style="color:#6B7382;font-size:13px;">assets/clients/ 폴더 안까지 모두 비우기</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="screen-box">
+      <div class="label">🖼️ 화면 설명</div>
+      파일을 클릭하면 화면 오른쪽 위에 <b>연필 아이콘(편집)</b>과 <b>휴지통 아이콘(삭제)</b>이 보입니다.<br>
+      <b>휴지통 아이콘</b>을 클릭 → 가장 아래로 스크롤 → <b>"Commit changes"</b> 버튼 클릭하면 삭제 완료.
+    </div>
+
+    <div class="warn">
+      ⚠️ <b>저장소(Repository) 자체를 삭제하지 마세요.</b> 저장소를 지우면 Vercel 연결이 끊겨서 다시 설정해야 합니다. <b>파일만</b> 지우는 게 핵심입니다.
+    </div>
+
+    <div class="tip">
+      💡 <b>귀찮으면 건너뛰어도 됩니다.</b> 같은 이름의 파일을 다시 올리면 자동으로 덮어씌워지거든요. 단, 이전 버전에만 있던 파일(예: <code>client-04.webp</code>)은 안 지우면 그대로 남습니다. 깔끔하게 가려면 정리하는 게 좋아요.
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-section" id="s3">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">새 파일 일괄 업로드하기</div>
+        <div class="step-sub">압축 푼 site 폴더 내용물을 GitHub로 드래그</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📤 루트(저장소 메인)에 업로드</h3>
+      <ul class="steps-list">
+        <li>
+          <div class="n">1</div>
+          <div class="txt">저장소 메인 화면에서 <b>Add file</b> → <b>Upload files</b> 클릭</div>
+        </li>
+        <li>
+          <div class="n">2</div>
+          <div class="txt">압축 푼 <b>site 폴더 안의 모든 파일과 폴더</b>를 전체 선택 (Ctrl+A / Cmd+A)<br><span style="color:#6B7382;font-size:13px;">⚠️ site 폴더 자체가 아니라, 폴더 안의 내용물을 선택</span></div>
+        </li>
+        <li>
+          <div class="n">3</div>
+          <div class="txt">선택한 파일/폴더를 GitHub 업로드 화면의 <b>점선 박스 안으로 드래그</b><br><span style="color:#6B7382;font-size:13px;">assets 폴더도 폴더째 끌어다 놓으면 자동으로 하위 파일까지 다 올라갑니다</span></div>
+        </li>
+        <li>
+          <div class="n">4</div>
+          <div class="txt">파일이 모두 업로드된 걸 확인한 뒤, 화면 아래 <b>"Commit changes"</b> 클릭<br><span style="color:#6B7382;font-size:13px;">메시지 칸은 비워도 됩니다 (또는 "현재 버전 일괄 업로드" 정도)</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="screen-box">
+      <div class="label">🖼️ 화면 설명</div>
+      GitHub 업로드 화면에는 큰 <b>점선 박스</b>가 있어요.<br>
+      파일 탐색기에서 압축 푼 <code>site/</code> 폴더를 열고,<br>
+      <b>그 안의 파일/폴더만 전체 선택 → 드래그</b>해서 점선 박스에 놓으면 됩니다.<br>
+      파일이 많으면 업로드에 1~2분 걸릴 수 있어요.
+    </div>
+
+    <div class="tip">
+      💡 <b>중요:</b> <code>index.html</code>이 GitHub 저장소 <b>맨 위(루트)</b>에 있어야 Vercel이 찾을 수 있습니다. <code>site/index.html</code>처럼 폴더 안에 들어가 있으면 사이트가 안 떠요.
+    </div>
+
+    <div class="warn">
+      ⚠️ 만약 폴더 통째 드래그가 안 되면? → <b>assets 폴더만 따로</b> 업로드하세요. 저장소에서 <b>Add file → Create new file</b> → 파일명에 <code>assets/clients/임시.txt</code>처럼 입력하면 폴더가 만들어집니다. 그 다음 그 폴더에 들어가서 이미지를 업로드하면 됩니다.
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-section" id="s4">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Vercel 자동 배포 확인하기</div>
+        <div class="step-sub">GitHub에 올리면 1~2분 후 자동 반영</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✅ 배포 상태 확인</h3>
+      <ul class="steps-list">
+        <li>
+          <div class="n">1</div>
+          <div class="txt"><a href="https://vercel.com" target="_blank">vercel.com</a> 접속 후 로그인</div>
+        </li>
+        <li>
+          <div class="n">2</div>
+          <div class="txt">대시보드 → 이룸마케팅 프로젝트 클릭</div>
+        </li>
+        <li>
+          <div class="n">3</div>
+          <div class="txt"><b>Deployments</b> 탭에서 맨 위 항목 상태 확인<br><span style="color:#6B7382;font-size:13px;">🟡 Building → ✅ Ready 로 바뀌면 완료</span></div>
+        </li>
+        <li>
+          <div class="n">4</div>
+          <div class="txt">Ready 뜨면 <b><a href="https://erum-marketing.vercel.app" target="_blank">erum-marketing.vercel.app</a></b> 새로고침</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="success">
+      ✅ <b>배포 성공!</b> 이제 라이브 사이트에 최신 버전이 반영됩니다.
+    </div>
+
+    <div class="warn">
+      ⚠️ 예전 화면이 보이면? → <b>Ctrl+Shift+R</b> (Mac: <b>Cmd+Shift+R</b>)로 강력 새로고침. 브라우저 캐시 문제입니다.
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-section" id="s5">
+    <div class="step-header">
+      <div class="step-num">5</div>
+      <div>
+        <div class="step-title">최종 확인 체크리스트</div>
+        <div class="step-sub">라이브 사이트에서 하나씩 확인</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <ul class="checklist">
+        <li><div class="check">✓</div><div>메인 페이지(<code>/</code>)가 정상적으로 열리는지</div></li>
+        <li><div class="check">✓</div><div>좌측 상단 <b>이룸마케팅 로고</b>가 보이는지</div></li>
+        <li><div class="check">✓</div><div>Hero 문구가 <b>"매출 안 오르면 100% 환불"</b>인지</div></li>
+        <li><div class="check">✓</div><div>Stats 숫자 3개 (<b>3.2년 / 97% / 617%</b>)가 보이는지</div></li>
+        <li><div class="check">✓</div><div><b>함께하는 병원 marquee</b>가 끊김 없이 3줄 흐르는지</div></li>
+        <li><div class="check">✓</div><div>병원 로고 19개가 모두 보이는지 (에미뜨/라라피부과 검정 글씨)</div></li>
+        <li><div class="check">✓</div><div>서비스 카드 캐러셀에 <b>11개 카드</b>가 다 보이는지 (메타 아이콘 포함)</div></li>
+        <li><div class="check">✓</div><div>Process 5단계가 가로로 늘어서 있는지</div></li>
+        <li><div class="check">✓</div><div>FAQ 5개 질문이 클릭 시 펼쳐지는지</div></li>
+        <li><div class="check">✓</div><div>Contact 폼 — 동의 체크 안 하면 alert 뜨는지</div></li>
+        <li><div class="check">✓</div><div>휴대폰으로 열어서 모바일 디자인 깨지지 않는지</div></li>
+        <li><div class="check">✓</div><div>본인 메일로 문의폼 테스트 제출 → 메일 도착 확인</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 완료 배너 -->
+  <div class="done-banner">
+    <h2>🎉 업로드 완료!</h2>
+    <p>막히는 부분이 있으면 어느 단계에서 막혔는지 알려주세요.<br>스크린샷과 함께 알려주시면 바로 해결해 드릴게요.</p>
+  </div>
+
+</div>
+</body>
+</html>
