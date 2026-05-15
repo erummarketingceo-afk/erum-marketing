@@ -101,11 +101,12 @@
 }
 @media (max-width: 768px) {
   .stats { padding: 48px 0; }
-  .stats-grid { grid-template-columns: repeat(3, 1fr); }
-  .stat-item { padding: 24px 8px; }
-  .stat-num { font-size: 32px; }
-  .stat-num small { font-size: 20px; }
-  .stat-label { font-size: 12px; }
+  .stats-grid { grid-template-columns: 1fr; border: none; }
+  .stat-item { padding: 32px 16px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.14); text-align: center; }
+  .stat-item:last-child { border-bottom: 0; }
+  .stat-num { font-size: 56px; }
+  .stat-num small { font-size: 32px; }
+  .stat-label { font-size: 14px; }
 }
 
 /* ───── Partners (3-Row Marquee) ───── */
