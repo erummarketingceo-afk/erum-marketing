@@ -120,12 +120,11 @@
 @media (max-width: 560px) {
   .proof-card { height: 380px; }
 }
-@media (max-width: 900px) {
-  .proof-grid { grid-template-columns: repeat(2, 1fr); }
-}
 @media (max-width: 560px) {
-  .proof-grid { grid-template-columns: 1fr; }
-  .proof-title { font-size: 26px; }
+  .proof-title { font-size: 22px; }
+  .proof-sub { font-size: 14px; }
+  .proof-grid { gap: 8px; }
+  .proof-card { height: 140px; }
 }
 
 /* ───── Stats ───── */
@@ -163,11 +162,10 @@
 }
 @media (max-width: 768px) {
   .stats { padding: 64px 0; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat-item:nth-child(2) { border-right: 0; }
-  .stat-item:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.14); }
-  .stat-num { font-size: 48px; }
-  .stat-num small { font-size: 28px; }
+  .stats-title { font-size: 22px; }
+  .stat-num { font-size: 30px; }
+  .stat-num small { font-size: 16px; }
+  .stat-label { font-size: 11px; }
 }
 
 /* ───── Partners (3-Row Marquee) ───── */
