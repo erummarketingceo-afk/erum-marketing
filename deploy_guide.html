@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>배포 가이드 — 이룸 마케팅 홈페이지</title>
+<title>배포 가이드 — 펜타 마케팅 홈페이지</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
   * { box-sizing: border-box; }
@@ -105,7 +105,7 @@
 <div class="wrap">
 
 <div class="hero">
-  <h1>이룸 마케팅 홈페이지 배포 가이드</h1>
+  <h1>펜타 마케팅 홈페이지 배포 가이드</h1>
   <p>5단계로 끝내는 무료 호스팅 — 약 30분 소요</p>
 </div>
 
@@ -145,7 +145,7 @@
 <h3>방법 A — 가장 쉬움 (드래그 업로드)</h3>
 <ol>
   <li><a href="https://github.com/new" target="_blank">github.com/new</a> 접속</li>
-  <li>Repository name: <code>erum-marketing</code> 입력</li>
+  <li>Repository name: <code>penta-marketing</code> 입력</li>
   <li><b>Public</b> 선택 → <b>Create repository</b> 클릭</li>
   <li>다음 화면에서 "uploading an existing file" 링크 클릭</li>
   <li><code>site/</code> 폴더 안의 <b>모든 파일을 드래그</b>해서 업로드 (assets 폴더 포함)</li>
@@ -162,7 +162,7 @@ git init
 git add .
 git commit -m "initial"
 git branch -M main
-git remote add origin https://github.com/YOUR_ID/erum-marketing.git
+git remote add origin https://github.com/YOUR_ID/penta-marketing.git
 git push -u origin main</pre>
 
 <h2 id="s3"><span class="num">3</span>Vercel에 연결해서 배포</h2>
@@ -171,9 +171,9 @@ git push -u origin main</pre>
   <li><a href="https://vercel.com" target="_blank">vercel.com</a> → "Sign Up" → <b>Continue with GitHub</b></li>
   <li>GitHub 권한 승인</li>
   <li>대시보드에서 <b>Add New… → Project</b> 클릭</li>
-  <li>방금 만든 <code>erum-marketing</code> 저장소 옆 <b>Import</b> 클릭</li>
+  <li>방금 만든 <code>penta-marketing</code> 저장소 옆 <b>Import</b> 클릭</li>
   <li>설정 화면에서 <b>그대로 Deploy</b> 버튼 클릭 (별도 설정 불필요)</li>
-  <li>1~2분 기다리면 🎉 — 자동으로 <code>erum-marketing.vercel.app</code> 같은 주소가 나옵니다</li>
+  <li>1~2분 기다리면 🎉 — 자동으로 <code>penta-marketing.vercel.app</code> 같은 주소가 나옵니다</li>
 </ol>
 
 <div class="tip">
@@ -187,7 +187,7 @@ git push -u origin main</pre>
 <ol>
   <li><a href="https://formspree.io" target="_blank">formspree.io</a> 가입</li>
   <li>대시보드 → <b>+ New Form</b> 클릭</li>
-  <li>Form name: "이룸마케팅 상담", Send to: 받을 이메일 주소 입력</li>
+  <li>Form name: "펜타마케팅 상담", Send to: 받을 이메일 주소 입력</li>
   <li>생성되면 endpoint가 나옵니다: <code>https://formspree.io/f/abcdwxyz</code></li>
   <li>GitHub에서 <code>index.html</code> 편집 → <code>YOUR_FORMSPREE_ID</code>를 위 endpoint의 <code>abcdwxyz</code> 부분으로 교체</li>
   <li>Commit하면 1분 후 라이브 사이트에 반영됩니다</li>
@@ -217,7 +217,7 @@ git push -u origin main</pre>
 
 <h2 id="s6"><span class="num">6</span>자체 도메인 연결 (선택)</h2>
 
-<p><code>erum-marketing.vercel.app</code> 그대로 써도 되지만, <code>erum-marketing.kr</code> 같은 자체 도메인이 더 좋습니다.</p>
+<p><code>penta-marketing.vercel.app</code> 그대로 써도 되지만, <code>penta-marketing.kr</code> 같은 자체 도메인이 더 좋습니다.</p>
 
 <h3>도메인 구입</h3>
 <ul>
@@ -229,7 +229,7 @@ git push -u origin main</pre>
 <h3>Vercel에 연결</h3>
 <ol>
   <li>Vercel 프로젝트 → Settings → <b>Domains</b></li>
-  <li>도메인 입력 (예: <code>erum-marketing.kr</code>) → Add</li>
+  <li>도메인 입력 (예: <code>penta-marketing.kr</code>) → Add</li>
   <li>Vercel이 알려주는 DNS 레코드(A / CNAME)를 도메인 구매한 곳의 DNS 설정에 입력</li>
   <li>10분~1시간 후 자동 연결, SSL(https)도 자동 발급</li>
 </ol>
@@ -251,7 +251,7 @@ git push -u origin main</pre>
   <li>Formspree ID 교체 → 본인 메일로 테스트 제출</li>
   <li>GA 측정 ID 입력 → 실시간 보고서에서 본인 접속 확인</li>
   <li>전화번호 <code>02-1234-5678</code> → 실제 번호로 교체 (index.html, blog.html, 푸터)</li>
-  <li>이메일 <code>hello@erum-marketing.kr</code> → 실제 메일로 교체</li>
+  <li>이메일 <code>hello@penta-marketing.kr</code> → 실제 메일로 교체</li>
   <li>사업자등록번호, 대표자명 → 실제 정보로 교체</li>
   <li>네이버 블로그 ID — <code>blog.html</code>의 <code>YOUR_BLOG_ID</code> 2곳 교체</li>
   <li>성공사례 이미지 → 실제 병원 사례 이미지로 교체 (병원 동의 후)</li>

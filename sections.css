@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════
-   이룸 마케팅 — 섹션별 스타일
+   펜타 마케팅 — 섹션별 스타일
    ─────────────────────────────────────────────────────────────────── */
 
 /* ───── Hero ───── */
@@ -66,6 +66,68 @@
   .hero p { font-size: 16px; }
 }
 
+/* ───── Proof (실제 후기) ───── */
+.proof {
+  padding: 96px 0 104px;
+  background: var(--erum-gray-50);
+  text-align: center;
+}
+.proof-title {
+  font-size: 34px; font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--erum-gray-900);
+  line-height: 1.3;
+}
+.proof-sub {
+  margin-top: 12px;
+  font-size: 17px;
+  color: var(--erum-gray-600);
+}
+.proof-title .hl, .proof-sub .hl {
+  color: var(--erum-blue-500);
+}
+.proof-connector {
+  margin: 56px auto 0;
+  display: flex; flex-direction: column; align-items: center;
+}
+.proof-label {
+  font-size: 14px; font-weight: 700;
+  color: var(--erum-gray-500);
+  background: #fff;
+  border: 1px solid var(--erum-gray-200);
+  border-radius: 999px;
+  padding: 6px 18px;
+}
+.proof-line {
+  width: 1px; height: 40px;
+  background: var(--erum-gray-300);
+  margin-top: 4px;
+}
+.proof-grid {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+.proof-card {
+  height: 480px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--erum-shadow-md);
+  background: #fff;
+}
+@media (max-width: 560px) {
+  .proof-card { height: 380px; }
+}
+@media (max-width: 900px) {
+  .proof-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .proof-grid { grid-template-columns: 1fr; }
+  .proof-title { font-size: 26px; }
+}
+
 /* ───── Stats ───── */
 .stats {
   background: var(--erum-navy-900);
@@ -100,13 +162,12 @@
   font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 12px;
 }
 @media (max-width: 768px) {
-  .stats { padding: 48px 0; }
-  .stats-grid { grid-template-columns: repeat(3, 1fr); }
-  .stat-item { padding: 20px 8px; }
+  .stats { padding: 64px 0; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat-item:nth-child(2) { border-right: 0; }
-  .stat-num { font-size: 28px; }
-  .stat-num small { font-size: 18px; }
-  .stat-label { font-size: 11px; }
+  .stat-item:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .stat-num { font-size: 48px; }
+  .stat-num small { font-size: 28px; }
 }
 
 /* ───── Partners (3-Row Marquee) ───── */
@@ -216,6 +277,61 @@
   .cases-grid { grid-template-columns: 1fr; }
   .cases { padding: 64px 0; }
 }
+
+/* ───── Conviction ───── */
+.conviction {
+  background: linear-gradient(180deg, #6E8CB8 0%, #1B3766 55%, #0F2456 100%);
+  padding: 112px 0 96px;
+  text-align: center;
+  color: #fff;
+}
+.conviction-title { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+.conviction-sub { margin-top: 10px; font-size: 17px; color: rgba(255,255,255,0.85); }
+.conviction-connector { display: flex; flex-direction: column; align-items: center; margin: 40px 0; }
+.conviction-then { font-size: 14px; color: rgba(255,255,255,0.7); }
+.conviction-line { width: 1px; height: 120px; background: rgba(255,255,255,0.4); margin-top: 12px; }
+.conviction-lead { font-size: 18px; color: rgba(255,255,255,0.85); }
+.conviction-punch { margin-top: 14px; font-size: 34px; font-weight: 800; letter-spacing: -0.02em; }
+.conviction-punch mark {
+  background: #B8C33A; color: #0F2456;
+  padding: 4px 10px; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+@media (max-width: 768px) {
+  .conviction-title { font-size: 22px; }
+  .conviction-punch { font-size: 26px; }
+  .conviction-line { height: 80px; }
+}
+
+/* ───── More Info (블로그 링크) ───── */
+.more-info { background: #fff; padding: 88px 0 104px; text-align: center; }
+.more-info-title {
+  font-size: 30px; font-weight: 800; line-height: 1.35;
+  letter-spacing: -0.02em; color: var(--erum-gray-900);
+  margin-bottom: 40px;
+}
+.more-info-title .hl { color: var(--erum-blue-500); }
+.more-info-hl { color: var(--erum-blue-500); }
+.more-info-warn-text { color: var(--erum-danger); }
+.more-info-card {
+  display: block; max-width: 420px; margin: 0 auto;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: var(--erum-shadow-md);
+  text-decoration: none; color: inherit;
+  transition: transform 0.25s var(--erum-ease), box-shadow 0.25s var(--erum-ease);
+}
+.more-info-card:hover { transform: translateY(-4px); box-shadow: var(--erum-shadow-lg); }
+.more-info-thumb { position: relative; width: 100%; height: 240px; }
+.more-info-plus {
+  position: absolute; top: 14px; right: 14px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(15,36,86,0.55); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; line-height: 1; pointer-events: none;
+}
+.more-info-body { padding: 20px 22px 26px; }
+.more-info-body h3 { font-size: 18px; font-weight: 700; color: var(--erum-gray-900); line-height: 1.5; }
+.more-info-tag { margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--erum-blue-500); }
+.more-info-warn { background: none; color: var(--erum-danger); }
 
 /* ───── Services (Carousel) ───── */
 .services { background: #fff; padding: 96px 0; }
