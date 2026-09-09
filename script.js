@@ -66,12 +66,12 @@
           success.classList.add('is-active');
           if (window.gtag) gtag('event', 'lead_submit', { event_category: 'contact' });
         } else {
-          alert('전송에 실패했습니다. 잠시 후 다시 시도하시거나, 전화로 연락 부탁드립니다. (02-1234-5678)');
+          alert('전송에 실패했습니다. 잠시 후 다시 시도하시거나, 이메일로 연락 부탁드립니다. (pentamkt.official@gmail.com)');
           btn.textContent = origText;
           btn.disabled = false;
         }
       }).catch(function () {
-        alert('네트워크 오류가 발생했습니다. 전화로 연락 부탁드립니다. (02-1234-5678)');
+        alert('네트워크 오류가 발생했습니다. 이메일로 연락 부탁드립니다. (pentamkt.official@gmail.com)');
         btn.textContent = origText;
         btn.disabled = false;
       });
